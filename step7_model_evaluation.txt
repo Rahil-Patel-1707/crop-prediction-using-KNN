@@ -1,0 +1,323 @@
+====================================================================================================
+KNN MODEL EVALUATION REPORT
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+STEP 1: PREDICTION & ACCURACY
+----------------------------------------------------------------------------------------------------
+
+Prediction details:
+  - Test samples: 440
+  - Predictions made: 440
+
+ACCURACY SCORE: 0.9795 (97.95%)
+
+Interpretation:
+  - EXCELLENT: Model correctly predicts crops with very high accuracy
+
+----------------------------------------------------------------------------------------------------
+STEP 2: CONFUSION MATRIX
+----------------------------------------------------------------------------------------------------
+
+Confusion Matrix Shape: (22, 22)
+
+Confusion Matrix (Raw Counts):
+
+             Pred_Apple  Pred_Banana  Pred_Blackgram  Pred_ChickPea  Pred_Coconut  Pred_Coffee  Pred_Cotton  Pred_Grapes  Pred_Jute  Pred_KidneyBeans  Pred_Lentil  Pred_Maize  Pred_Mango  Pred_MothBeans  Pred_MungBean  Pred_Muskmelon  Pred_Orange  Pred_Papaya  Pred_PigeonPeas  Pred_Pomegranate  Pred_Rice  Pred_Watermelon
+Apple                20            0               0              0             0            0            0            0          0                 0            0           0           0               0              0               0            0            0                0                 0          0                0
+Banana                0           20               0              0             0            0            0            0          0                 0            0           0           0               0              0               0            0            0                0                 0          0                0
+Blackgram             0            0              20              0             0            0            0            0          0                 0            0           0           0               0              0               0            0            0                0                 0          0                0
+ChickPea              0            0               0             20             0            0            0            0          0                 0            0           0           0               0              0               0            0            0                0                 0          0                0
+Coconut               0            0               0              0            20            0            0            0          0                 0            0           0           0               0              0               0            0            0                0                 0          0                0
+Coffee                0            0               0              0             0           20            0            0          0                 0            0           0           0               0              0               0            0            0                0                 0          0                0
+Cotton                0            0               0              0             0            0           20            0          0                 0            0           0           0               0              0               0            0            0                0                 0          0                0
+Grapes                0            0               0              0             0            0            0           20          0                 0            0           0           0               0              0               0            0            0                0                 0          0                0
+Jute                  0            0               0              0             0            0            0            0         20                 0            0           0           0               0              0               0            0            0                0                 0          0                0
+KidneyBeans           0            0               0              0             0            0            0            0          0                20            0           0           0               0              0               0            0            0                0                 0          0                0
+Lentil                0            0               0              0             0            0            0            0          0                 0           20           0           0               0              0               0            0            0                0                 0          0                0
+Maize                 0            0               0              0             0            0            1            0          0                 0            0          19           0               0              0               0            0            0                0                 0          0                0
+Mango                 0            0               0              0             0            0            0            0          0                 0            0           0          20               0              0               0            0            0                0                 0          0                0
+MothBeans             0            0               0              0             0            0            0            0          0                 0            2           0           1              17              0               0            0            0                0                 0          0                0
+MungBean              0            0               0              0             0            0            0            0          0                 0            0           0           0               0             20               0            0            0                0                 0          0                0
+Muskmelon             0            0               0              0             0            0            0            0          0                 0            0           0           0               0              0              20            0            0                0                 0          0                0
+Orange                0            0               0              0             1            0            0            0          0                 0            0           0           0               0              0               0           18            0                0                 1          0                0
+Papaya                0            0               0              0             0            0            0            0          0                 0            0           0           0               0              0               0            0           20                0                 0          0                0
+PigeonPeas            0            0               0              0             0            0            0            0          0                 1            0           0           0               1              0               0            0            0               18                 0          0                0
+Pomegranate           0            0               0              0             0            0            0            0          0                 0            0           0           0               0              0               0            0            0                0                20          0                0
+Rice                  0            0               0              0             0            0            0            0          1                 0            0           0           0               0              0               0            0            0                0                 0         19                0
+Watermelon            0            0               0              0             0            0            0            0          0                 0            0           0           0               0              0               0            0            0                0                 0          0               20
+
+Diagonal Analysis (Correct Predictions):
+  Apple          : 20/20 correct (100.0%)
+  Banana         : 20/20 correct (100.0%)
+  Blackgram      : 20/20 correct (100.0%)
+  ChickPea       : 20/20 correct (100.0%)
+  Coconut        : 20/20 correct (100.0%)
+  Coffee         : 20/20 correct (100.0%)
+  Cotton         : 20/20 correct (100.0%)
+  Grapes         : 20/20 correct (100.0%)
+  Jute           : 20/20 correct (100.0%)
+  KidneyBeans    : 20/20 correct (100.0%)
+  Lentil         : 20/20 correct (100.0%)
+  Maize          : 19/20 correct ( 95.0%)
+  Mango          : 20/20 correct (100.0%)
+  MothBeans      : 17/20 correct ( 85.0%)
+  MungBean       : 20/20 correct (100.0%)
+  Muskmelon      : 20/20 correct (100.0%)
+  Orange         : 18/20 correct ( 90.0%)
+  Papaya         : 20/20 correct (100.0%)
+  PigeonPeas     : 18/20 correct ( 90.0%)
+  Pomegranate    : 20/20 correct (100.0%)
+  Rice           : 19/20 correct ( 95.0%)
+  Watermelon     : 20/20 correct (100.0%)
+
+MISCLASSIFICATION PATTERNS:
+
+  - Maize misclassified as Cotton: 1 case(s)
+  - MothBeans misclassified as Lentil: 2 case(s)
+  - MothBeans misclassified as Mango: 1 case(s)
+  - Orange misclassified as Coconut: 1 case(s)
+  - Orange misclassified as Pomegranate: 1 case(s)
+  - PigeonPeas misclassified as KidneyBeans: 1 case(s)
+  - PigeonPeas misclassified as MothBeans: 1 case(s)
+  - Rice misclassified as Jute: 1 case(s)
+
+Total misclassifications: 9 out of 440 (2.05%)
+
+----------------------------------------------------------------------------------------------------
+STEP 3: CLASSIFICATION REPORT
+----------------------------------------------------------------------------------------------------
+
+Metrics per class:
+  - Precision: Of all predicted as X, how many were actually X
+  - Recall: Of all actual X, how many were correctly predicted as X
+  - F1-Score: Harmonic mean of precision and recall
+
+              precision    recall  f1-score   support
+
+       Apple     1.0000    1.0000    1.0000        20
+      Banana     1.0000    1.0000    1.0000        20
+   Blackgram     1.0000    1.0000    1.0000        20
+    ChickPea     1.0000    1.0000    1.0000        20
+     Coconut     0.9524    1.0000    0.9756        20
+      Coffee     1.0000    1.0000    1.0000        20
+      Cotton     0.9524    1.0000    0.9756        20
+      Grapes     1.0000    1.0000    1.0000        20
+        Jute     0.9524    1.0000    0.9756        20
+ KidneyBeans     0.9524    1.0000    0.9756        20
+      Lentil     0.9091    1.0000    0.9524        20
+       Maize     1.0000    0.9500    0.9744        20
+       Mango     0.9524    1.0000    0.9756        20
+   MothBeans     0.9444    0.8500    0.8947        20
+    MungBean     1.0000    1.0000    1.0000        20
+   Muskmelon     1.0000    1.0000    1.0000        20
+      Orange     1.0000    0.9000    0.9474        20
+      Papaya     1.0000    1.0000    1.0000        20
+  PigeonPeas     1.0000    0.9000    0.9474        20
+ Pomegranate     0.9524    1.0000    0.9756        20
+        Rice     1.0000    0.9500    0.9744        20
+  Watermelon     1.0000    1.0000    1.0000        20
+
+    accuracy                         0.9795       440
+   macro avg     0.9804    0.9795    0.9793       440
+weighted avg     0.9804    0.9795    0.9793       440
+
+
+----------------------------------------------------------------------------------------------------
+STEP 4: TRUE POSITIVES, FALSE POSITIVES, FALSE NEGATIVES
+----------------------------------------------------------------------------------------------------
+
+Computing for multi-class classification:
+  - TP (True Positive)  = Diagonal element (correctly predicted)
+  - FP (False Positive) = Sum of column excluding diagonal (wrongly predicted as this class)
+  - FN (False Negative) = Sum of row excluding diagonal (actual class missed)
+
+----------------------------------------------------------------------
+Class           | True Positive (TP) | False Positive (FP) | False Negative (FN)
+----------------------------------------------------------------------
+Apple           |                 20 |                   0 |                   0
+Banana          |                 20 |                   0 |                   0
+Blackgram       |                 20 |                   0 |                   0
+ChickPea        |                 20 |                   0 |                   0
+Coconut         |                 20 |                   1 |                   0
+Coffee          |                 20 |                   0 |                   0
+Cotton          |                 20 |                   1 |                   0
+Grapes          |                 20 |                   0 |                   0
+Jute            |                 20 |                   1 |                   0
+KidneyBeans     |                 20 |                   1 |                   0
+Lentil          |                 20 |                   2 |                   0
+Maize           |                 19 |                   0 |                   1
+Mango           |                 20 |                   1 |                   0
+MothBeans       |                 17 |                   1 |                   3
+MungBean        |                 20 |                   0 |                   0
+Muskmelon       |                 20 |                   0 |                   0
+Orange          |                 18 |                   0 |                   2
+Papaya          |                 20 |                   0 |                   0
+PigeonPeas      |                 18 |                   0 |                   2
+Pomegranate     |                 20 |                   1 |                   0
+Rice            |                 19 |                   0 |                   1
+Watermelon      |                 20 |                   0 |                   0
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+STEP 5: INTERPRETATION OF FP AND FN
+----------------------------------------------------------------------------------------------------
+
+================================================================================
+WHAT DO FP AND FN MEAN IN CROP PREDICTION?
+================================================================================
+
+FALSE POSITIVE (FP):
+  Definition: Model predicts a specific crop, but the actual crop is DIFFERENT.
+
+  Example from our results:
+    - Coconut: 1 FP cases
+      -> Model predicted 'Coconut' 1 time(s) when it was actually a different crop
+    - Cotton: 1 FP cases
+      -> Model predicted 'Cotton' 1 time(s) when it was actually a different crop
+    - Jute: 1 FP cases
+      -> Model predicted 'Jute' 1 time(s) when it was actually a different crop
+    - KidneyBeans: 1 FP cases
+      -> Model predicted 'KidneyBeans' 1 time(s) when it was actually a different crop
+    - Lentil: 2 FP cases
+      -> Model predicted 'Lentil' 2 time(s) when it was actually a different crop
+    - Mango: 1 FP cases
+      -> Model predicted 'Mango' 1 time(s) when it was actually a different crop
+    - MothBeans: 1 FP cases
+      -> Model predicted 'MothBeans' 1 time(s) when it was actually a different crop
+    - Pomegranate: 1 FP cases
+      -> Model predicted 'Pomegranate' 1 time(s) when it was actually a different crop
+
+  Agricultural Impact:
+    - Farmer might plant wrong crop based on recommendation
+    - Wasted resources (seeds, fertilizer, water)
+    - Potential yield loss due to unsuitable conditions
+
+FALSE NEGATIVE (FN):
+  Definition: Model FAILS to predict the correct crop (misses the actual crop).
+
+  Example from our results:
+    - Maize: 1 FN cases
+      -> Model missed identifying 'Maize' 1 time(s)
+    - MothBeans: 3 FN cases
+      -> Model missed identifying 'MothBeans' 3 time(s)
+    - Orange: 2 FN cases
+      -> Model missed identifying 'Orange' 2 time(s)
+    - PigeonPeas: 2 FN cases
+      -> Model missed identifying 'PigeonPeas' 2 time(s)
+    - Rice: 1 FN cases
+      -> Model missed identifying 'Rice' 1 time(s)
+
+  Agricultural Impact:
+    - Farmer misses opportunity to plant optimal crop
+    - Suboptimal yield from planting less suitable crop
+    - Reduced profitability for farmer
+
+================================================================================
+DETAILED ANALYSIS OF FP AND FN CASES
+================================================================================
+
+Classes with False Positives (model over-predicts):
+  - Coconut (1 FP):
+      * 1 case(s) of actual Orange predicted as Coconut
+  - Cotton (1 FP):
+      * 1 case(s) of actual Maize predicted as Cotton
+  - Jute (1 FP):
+      * 1 case(s) of actual Rice predicted as Jute
+  - KidneyBeans (1 FP):
+      * 1 case(s) of actual PigeonPeas predicted as KidneyBeans
+  - Lentil (2 FP):
+      * 2 case(s) of actual MothBeans predicted as Lentil
+  - Mango (1 FP):
+      * 1 case(s) of actual MothBeans predicted as Mango
+  - MothBeans (1 FP):
+      * 1 case(s) of actual PigeonPeas predicted as MothBeans
+  - Pomegranate (1 FP):
+      * 1 case(s) of actual Orange predicted as Pomegranate
+
+Classes with False Negatives (model under-predicts):
+  - Maize (1 FN):
+      * 1 case(s) predicted as Cotton instead
+  - MothBeans (3 FN):
+      * 2 case(s) predicted as Lentil instead
+      * 1 case(s) predicted as Mango instead
+  - Orange (2 FN):
+      * 1 case(s) predicted as Coconut instead
+      * 1 case(s) predicted as Pomegranate instead
+  - PigeonPeas (2 FN):
+      * 1 case(s) predicted as KidneyBeans instead
+      * 1 case(s) predicted as MothBeans instead
+  - Rice (1 FN):
+      * 1 case(s) predicted as Jute instead
+
+================================================================================
+SUMMARY OF FP AND FN ANALYSIS
+================================================================================
+
+  Total True Positives (correct):  431
+  Total False Positives (errors):    9
+  Total False Negatives (missed):    9
+  Total predictions:               440
+
+  Precision (TP / (TP + FP)):      0.9795
+  Recall (TP / (TP + FN)):         0.9795
+
+----------------------------------------------------------------------------------------------------
+STEP 6: OVERALL MODEL PERFORMANCE
+----------------------------------------------------------------------------------------------------
+
+================================================================================
+OVERALL PERFORMANCE ASSESSMENT
+================================================================================
+
+  Overall Accuracy:      97.95%
+  Macro Avg Precision:   98.04%
+  Macro Avg Recall:      97.95%
+  Macro Avg F1-Score:    97.93%
+
+Best Performing Classes (highest F1-scores):
+  - Apple          : F1 = 1.0000
+  - Banana         : F1 = 1.0000
+  - Blackgram      : F1 = 1.0000
+  - ChickPea       : F1 = 1.0000
+  - Coffee         : F1 = 1.0000
+
+Classes Needing Attention (lowest F1-scores):
+  - Rice           : F1 = 0.9744
+  - Lentil         : F1 = 0.9524
+  - Orange         : F1 = 0.9474
+  - PigeonPeas     : F1 = 0.9474
+  - MothBeans      : F1 = 0.8947
+
+----------------------------------------------------------------------------------------------------
+STEP 7: INSIGHTS & RECOMMENDATIONS
+----------------------------------------------------------------------------------------------------
+
+Key Findings:
+
+  1. EXCELLENT MODEL PERFORMANCE:
+     - KNN with k=5 achieves >95% accuracy on crop prediction
+     - Feature scaling and selection are effective
+
+  2. CROP PREDICTION RELIABILITY:
+     - The model reliably distinguishes between 22 different crops
+     - Agricultural recommendations can be trusted
+
+  3. FREQUENTLY CONFUSED CROP PAIRS:
+     - MothBeans <-> Lentil: 2 misclassifications
+     These crops may have similar soil/climate requirements
+
+  4. KNN SUITABILITY:
+     - KNN works well for this dataset because:
+       * Clear feature-crop relationships exist
+       * Similar environmental conditions cluster together
+       * 7 features provide sufficient discriminative power
+
+Recommendations:
+  - For production: Model is ready for crop recommendation system
+  - For improvement: Try k=3 or k=7 to compare performance
+  - For deployment: Include confidence scores with predictions
+
+====================================================================================================
+END OF MODEL EVALUATION REPORT
+====================================================================================================

@@ -1,0 +1,104 @@
+================================================================================
+CROP RECOMMENDATION DATASET - DATA CLEANING REPORT
+================================================================================
+
+--------------------------------------------------------------------------------
+DATASET SHAPE BEFORE CLEANING
+--------------------------------------------------------------------------------
+Number of Rows: 2200
+Number of Columns: 8
+Shape: (2200, 8)
+
+--------------------------------------------------------------------------------
+STEP 1: REMOVE DUPLICATE ROWS
+--------------------------------------------------------------------------------
+Duplicate rows found: 0
+Action: No duplicate rows to remove.
+
+--------------------------------------------------------------------------------
+STEP 2: HANDLE MISSING VALUES
+--------------------------------------------------------------------------------
+Explanation: Using median to fill missing values because:
+  - Median is robust to outliers (unlike mean)
+  - Preserves the central tendency of the data
+  - Appropriate for numeric agricultural measurements
+
+Missing values per column before cleaning:
+Nitrogen       0
+Phosphorus     0
+Potassium      0
+Temperature    0
+Humidity       0
+pH_Value       0
+Rainfall       0
+Crop           0
+Total missing values: 0
+
+Action: No missing values to handle.
+
+--------------------------------------------------------------------------------
+STEP 3: VALIDATE DATA RANGES
+--------------------------------------------------------------------------------
+Checking for negative values:
+  - Rainfall: 0 negative values
+  - Temperature: 0 negative values
+  - Humidity: 0 negative values
+  Action: No negative values found in any column.
+
+Checking pH range (0-14):
+  - pH values outside 0-14 range: 0
+  Action: All pH values are within valid range (0-14).
+
+--------------------------------------------------------------------------------
+STEP 4: CONVERT FEATURE COLUMNS TO NUMERIC
+--------------------------------------------------------------------------------
+Feature columns (excluding target 'Crop'):
+  - Nitrogen: int64 -> int64 (OK)
+  - Phosphorus: int64 -> int64 (OK)
+  - Potassium: int64 -> int64 (OK)
+  - Temperature: float64 -> float64 (OK)
+  - Humidity: float64 -> float64 (OK)
+  - pH_Value: float64 -> float64 (OK)
+  - Rainfall: float64 -> float64 (OK)
+
+All feature columns are now numeric.
+
+--------------------------------------------------------------------------------
+DATASET SHAPE AFTER CLEANING
+--------------------------------------------------------------------------------
+Number of Rows: 2200
+Number of Columns: 8
+Shape: (2200, 8)
+
+--------------------------------------------------------------------------------
+CLEANING SUMMARY
+--------------------------------------------------------------------------------
+Rows removed: 0
+Rows changed: 2200 -> 2200
+Columns unchanged: 8
+
+--------------------------------------------------------------------------------
+FINAL DATA TYPES
+--------------------------------------------------------------------------------
+Nitrogen         int64
+Phosphorus       int64
+Potassium        int64
+Temperature    float64
+Humidity       float64
+pH_Value       float64
+Rainfall       float64
+Crop               str
+
+--------------------------------------------------------------------------------
+SAMPLE OF CLEANED DATA (First 5 rows)
+--------------------------------------------------------------------------------
+   Nitrogen  Phosphorus  Potassium  Temperature   Humidity  pH_Value    Rainfall  Crop
+0        90          42         43    20.879744  82.002744  6.502985  202.935536  Rice
+1        85          58         41    21.770462  80.319644  7.038096  226.655537  Rice
+2        60          55         44    23.004459  82.320763  7.840207  263.964248  Rice
+3        74          35         40    26.491096  80.158363  6.980401  242.864034  Rice
+4        78          42         42    20.130175  81.604873  7.628473  262.717340  Rice
+
+================================================================================
+END OF DATA CLEANING REPORT
+================================================================================

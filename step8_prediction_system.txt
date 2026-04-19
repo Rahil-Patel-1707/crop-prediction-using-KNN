@@ -1,0 +1,45 @@
+================================================================================
+CROP PREDICTION SYSTEM
+================================================================================
+
+Step 1: Training KNN model...
+Model trained successfully!
+
+Step 2: Making predictions with example inputs...
+
+Example 1 Input: [90, 40, 40, 25, 80, 6.5, 200]
+  Features: N=90, P=40, K=40, Temp=25°C, Humidity=80%, pH=6.5, Rainfall=200mm
+  Recommended Crop: Jute
+  Confidence: 100.0%
+  Top alternatives: [('Watermelon', np.float64(0.0)), ('Pomegranate', np.float64(0.0)), ('PigeonPeas', np.float64(0.0))]
+
+Example 2 Input: [20, 20, 20, 30, 60, 7.0, 100]
+  Features: N=20, P=20, K=20, Temp=30°C, Humidity=60%, pH=7.0, Rainfall=100mm
+  Recommended Crop: Mango
+  Confidence: 100.0%
+  Top alternatives: [('Watermelon', np.float64(0.0)), ('Pomegranate', np.float64(0.0)), ('PigeonPeas', np.float64(0.0))]
+
+Example 3 Input: [40, 60, 30, 20, 90, 5.5, 250]
+  Features: N=40, P=60, K=30, Temp=20°C, Humidity=90%, pH=5.5, Rainfall=250mm
+  Recommended Crop: Rice
+  Confidence: 100.0%
+  Top alternatives: [('Watermelon', np.float64(0.0)), ('Pomegranate', np.float64(0.0)), ('PigeonPeas', np.float64(0.0))]
+
+Step 3: Error handling demonstration...
+
+Testing invalid inputs:
+  Wrong input size: Input must have exactly 7 values (one per feature). Got: 3
+  Negative value: Rainfall cannot be negative. Got: -100.0
+  Invalid pH: pH_Value must be between 0 and 14. Got: 15.0
+  Non-numeric: All input values must be numeric. Error: could not convert string to float: 'invalid'
+
+================================================================================
+All tests completed successfully!
+================================================================================
+
+Usage:
+  from crop_prediction_system import train_and_save_model, predict_crop
+  train_and_save_model()
+  result = predict_crop([90, 40, 40, 25, 80, 6.5, 200])
+  print(f'Recommended Crop: {result}')
+

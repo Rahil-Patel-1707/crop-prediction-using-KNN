@@ -1,0 +1,112 @@
+====================================================================================================
+TRAIN-TEST SPLIT REPORT
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+SPLIT CONFIGURATION
+----------------------------------------------------------------------------------------------------
+  Method: sklearn.model_selection.train_test_split
+  Test size: 0.2 (20%)
+  Train size: 0.8 (80%)
+  Random state: 42 (for reproducibility)
+  Stratify: Yes (maintains class distribution)
+
+----------------------------------------------------------------------------------------------------
+ORIGINAL DATASET
+----------------------------------------------------------------------------------------------------
+  Total samples: 2200
+  Features: 7
+  Classes: 22
+
+----------------------------------------------------------------------------------------------------
+TRAINING SET (80%)
+----------------------------------------------------------------------------------------------------
+  X_train shape: (1760, 7)
+  y_train shape: (1760,)
+  Samples: 1760
+
+  Class distribution in training set:
+     0 (Apple          ):  80 samples ( 4.55%)
+     1 (Banana         ):  80 samples ( 4.55%)
+     2 (Blackgram      ):  80 samples ( 4.55%)
+     3 (ChickPea       ):  80 samples ( 4.55%)
+     4 (Coconut        ):  80 samples ( 4.55%)
+     5 (Coffee         ):  80 samples ( 4.55%)
+     6 (Cotton         ):  80 samples ( 4.55%)
+     7 (Grapes         ):  80 samples ( 4.55%)
+     8 (Jute           ):  80 samples ( 4.55%)
+     9 (KidneyBeans    ):  80 samples ( 4.55%)
+    10 (Lentil         ):  80 samples ( 4.55%)
+    11 (Maize          ):  80 samples ( 4.55%)
+    12 (Mango          ):  80 samples ( 4.55%)
+    13 (MothBeans      ):  80 samples ( 4.55%)
+    14 (MungBean       ):  80 samples ( 4.55%)
+    15 (Muskmelon      ):  80 samples ( 4.55%)
+    16 (Orange         ):  80 samples ( 4.55%)
+    17 (Papaya         ):  80 samples ( 4.55%)
+    18 (PigeonPeas     ):  80 samples ( 4.55%)
+    19 (Pomegranate    ):  80 samples ( 4.55%)
+    20 (Rice           ):  80 samples ( 4.55%)
+    21 (Watermelon     ):  80 samples ( 4.55%)
+
+----------------------------------------------------------------------------------------------------
+TESTING SET (20%)
+----------------------------------------------------------------------------------------------------
+  X_test shape: (440, 7)
+  y_test shape: (440,)
+  Samples: 440
+
+  Class distribution in test set:
+     0 (Apple          ):  20 samples ( 4.55%)
+     1 (Banana         ):  20 samples ( 4.55%)
+     2 (Blackgram      ):  20 samples ( 4.55%)
+     3 (ChickPea       ):  20 samples ( 4.55%)
+     4 (Coconut        ):  20 samples ( 4.55%)
+     5 (Coffee         ):  20 samples ( 4.55%)
+     6 (Cotton         ):  20 samples ( 4.55%)
+     7 (Grapes         ):  20 samples ( 4.55%)
+     8 (Jute           ):  20 samples ( 4.55%)
+     9 (KidneyBeans    ):  20 samples ( 4.55%)
+    10 (Lentil         ):  20 samples ( 4.55%)
+    11 (Maize          ):  20 samples ( 4.55%)
+    12 (Mango          ):  20 samples ( 4.55%)
+    13 (MothBeans      ):  20 samples ( 4.55%)
+    14 (MungBean       ):  20 samples ( 4.55%)
+    15 (Muskmelon      ):  20 samples ( 4.55%)
+    16 (Orange         ):  20 samples ( 4.55%)
+    17 (Papaya         ):  20 samples ( 4.55%)
+    18 (PigeonPeas     ):  20 samples ( 4.55%)
+    19 (Pomegranate    ):  20 samples ( 4.55%)
+    20 (Rice           ):  20 samples ( 4.55%)
+    21 (Watermelon     ):  20 samples ( 4.55%)
+
+----------------------------------------------------------------------------------------------------
+SPLIT VERIFICATION
+----------------------------------------------------------------------------------------------------
+  Total samples (train + test): 2200
+  Original total: 2200
+  Match: Yes
+
+  Train ratio: 0.80 (expected: 0.80)
+  Test ratio: 0.20 (expected: 0.20)
+
+----------------------------------------------------------------------------------------------------
+FILES SAVED
+----------------------------------------------------------------------------------------------------
+  1. X_train.csv - Training features (1760 x 7)
+  2. X_test.csv - Testing features (440 x 7)
+  3. y_train.csv - Training labels (1760 x 1)
+  4. y_test.csv - Testing labels (440 x 1)
+
+----------------------------------------------------------------------------------------------------
+DATA CONSISTENCY CHECK
+----------------------------------------------------------------------------------------------------
+  Overlapping samples between train and test: 0
+  Status: No leakage detected
+
+  X_train shape (1760, 7) matches y_train shape (1760,): Yes
+  X_test shape (440, 7) matches y_test shape (440,): Yes
+
+====================================================================================================
+END OF TRAIN-TEST SPLIT REPORT
+====================================================================================================

@@ -1,0 +1,225 @@
+====================================================================================================
+FEATURE ENGINEERING FOR KNN MODEL
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+STEP 1: SEPARATE FEATURES (X) AND TARGET (y)
+----------------------------------------------------------------------------------------------------
+
+Feature columns (X):
+  Shape: (2200, 7)
+  Columns: ['Nitrogen', 'Phosphorus', 'Potassium', 'Temperature', 'Humidity', 'pH_Value', 'Rainfall']
+
+Target column (y):
+  Shape: (2200,)
+  Column: Crop
+
+Sample of X (first 5 rows):
+   Nitrogen  Phosphorus  Potassium  Temperature   Humidity  pH_Value    Rainfall
+0        90          42         43    20.879744  82.002744  6.502985  202.935536
+1        85          58         41    21.770462  80.319644  7.038096  226.655537
+2        60          55         44    23.004459  82.320763  7.840207  263.964248
+3        74          35         40    26.491096  80.158363  6.980401  242.864034
+4        78          42         42    20.130175  81.604873  7.628473  262.717340
+
+Sample of y (first 10 values):
+['Rice', 'Rice', 'Rice', 'Rice', 'Rice', 'Rice', 'Rice', 'Rice', 'Rice', 'Rice']
+
+----------------------------------------------------------------------------------------------------
+STEP 2: TARGET ENCODING WITH LABELENCODER
+----------------------------------------------------------------------------------------------------
+
+Explanation: LabelEncoder converts categorical crop names into numeric values.
+This is necessary because KNN (and most ML algorithms) requires numeric inputs.
+
+Unique crop labels (original):
+  1. Apple
+  2. Banana
+  3. Blackgram
+  4. ChickPea
+  5. Coconut
+  6. Coffee
+  7. Cotton
+  8. Grapes
+  9. Jute
+  10. KidneyBeans
+  11. Lentil
+  12. Maize
+  13. Mango
+  14. MothBeans
+  15. MungBean
+  16. Muskmelon
+  17. Orange
+  18. Papaya
+  19. PigeonPeas
+  20. Pomegranate
+  21. Rice
+  22. Watermelon
+
+Total unique crops: 22
+
+Encoded values mapping:
+  Original Label -> Encoded Value
+  Apple        -> 0
+  Banana       -> 1
+  Blackgram    -> 2
+  ChickPea     -> 3
+  Coconut      -> 4
+  Coffee       -> 5
+  Cotton       -> 6
+  Grapes       -> 7
+  Jute         -> 8
+  KidneyBeans  -> 9
+  Lentil       -> 10
+  Maize        -> 11
+  Mango        -> 12
+  MothBeans    -> 13
+  MungBean     -> 14
+  Muskmelon    -> 15
+  Orange       -> 16
+  Papaya       -> 17
+  PigeonPeas   -> 18
+  Pomegranate  -> 19
+  Rice         -> 20
+  Watermelon   -> 21
+
+Sample of encoded y (first 20 values):
+  Original: ['Rice', 'Rice', 'Rice', 'Rice', 'Rice', 'Rice', 'Rice', 'Rice', 'Rice', 'Rice', 'Rice', 'Rice', 'Rice', 'Rice', 'Rice', 'Rice', 'Rice', 'Rice', 'Rice', 'Rice']
+  Encoded:  [np.int64(20), np.int64(20), np.int64(20), np.int64(20), np.int64(20), np.int64(20), np.int64(20), np.int64(20), np.int64(20), np.int64(20), np.int64(20), np.int64(20), np.int64(20), np.int64(20), np.int64(20), np.int64(20), np.int64(20), np.int64(20), np.int64(20), np.int64(20)]
+
+----------------------------------------------------------------------------------------------------
+STEP 3: FEATURE SCALING WITH STANDARDSCALER
+----------------------------------------------------------------------------------------------------
+
+================================================================================
+WHY SCALING IS CRITICAL FOR KNN
+================================================================================
+
+KNN is a distance-based algorithm. It calculates the distance between
+data points to find the 'k' nearest neighbors. Without scaling, features
+with larger value ranges will dominate the distance calculation.
+
+Example from our dataset:
+  - Rainfall range: 20.21 to 298.56
+  - pH_Value range: 3.50 to 9.94
+  - Nitrogen range: 0 to 140
+
+Without scaling, Rainfall (range ~278) would dominate over pH (range ~6)
+even if pH is more important for crop prediction.
+
+StandardScaler transforms each feature to have:
+  - Mean = 0
+  - Standard Deviation = 1
+
+Formula: z = (x - mean) / standard_deviation
+
+Benefits:
+  1. All features contribute equally to distance calculations
+  2. Improves KNN performance and convergence
+  3. Makes model less sensitive to outliers in specific features
+  4. Required for meaningful distance comparisons
+
+--------------------------------------------------------------------------------
+SCALING RESULTS
+--------------------------------------------------------------------------------
+
+Before Scaling (X):
+  Feature Statistics:
+        Nitrogen  Phosphorus   Potassium  Temperature   Humidity  pH_Value    Rainfall
+mean   50.551818   53.362727   48.149091    25.616244  71.481779  6.469480  103.463655
+std    36.917334   32.985883   50.647931     5.063749  22.263812  0.773938   54.958389
+min     0.000000    5.000000    5.000000     8.825675  14.258040  3.504752   20.211267
+max   140.000000  145.000000  205.000000    43.675493  99.981876  9.935091  298.560117
+
+After Scaling (X_scaled):
+  Feature Statistics:
+      Nitrogen  Phosphorus  Potassium  Temperature  Humidity  pH_Value  Rainfall
+mean -0.000000    0.000000  -0.000000     0.000000 -0.000000 -0.000000  0.000000
+std   1.000227    1.000227   1.000227     1.000227  1.000227  1.000227  1.000227
+min  -1.369636   -1.466498  -0.852136    -3.316592 -2.570842 -3.831577 -1.515170
+max   2.423483    2.778707   3.097591     3.567190  1.280400  4.478912  3.550701
+
+Verification - All means are now ~0 and std ~1:
+  Nitrogen    : mean =  -0.000000, std =   1.000227
+  Phosphorus  : mean =   0.000000, std =   1.000227
+  Potassium   : mean =  -0.000000, std =   1.000227
+  Temperature : mean =   0.000000, std =   1.000227
+  Humidity    : mean =  -0.000000, std =   1.000227
+  pH_Value    : mean =  -0.000000, std =   1.000227
+  Rainfall    : mean =   0.000000, std =   1.000227
+
+----------------------------------------------------------------------------------------------------
+STEP 4: SUMMARY - FEATURES, LABELS, AND ENCODING
+----------------------------------------------------------------------------------------------------
+
+FEATURE NAMES (X):
+----------------------------------------
+  1. Nitrogen
+  2. Phosphorus
+  3. Potassium
+  4. Temperature
+  5. Humidity
+  6. pH_Value
+  7. Rainfall
+
+UNIQUE CROP LABELS (y):
+----------------------------------------
+   1. Apple           (encoded: 0)
+   2. Banana          (encoded: 1)
+   3. Blackgram       (encoded: 2)
+   4. ChickPea        (encoded: 3)
+   5. Coconut         (encoded: 4)
+   6. Coffee          (encoded: 5)
+   7. Cotton          (encoded: 6)
+   8. Grapes          (encoded: 7)
+   9. Jute            (encoded: 8)
+  10. KidneyBeans     (encoded: 9)
+  11. Lentil          (encoded: 10)
+  12. Maize           (encoded: 11)
+  13. Mango           (encoded: 12)
+  14. MothBeans       (encoded: 13)
+  15. MungBean        (encoded: 14)
+  16. Muskmelon       (encoded: 15)
+  17. Orange          (encoded: 16)
+  18. Papaya          (encoded: 17)
+  19. PigeonPeas      (encoded: 18)
+  20. Pomegranate     (encoded: 19)
+  21. Rice            (encoded: 20)
+  22. Watermelon      (encoded: 21)
+
+ENCODED VALUE DISTRIBUTION:
+----------------------------------------
+   0 (Apple          ): 100 samples
+   1 (Banana         ): 100 samples
+   2 (Blackgram      ): 100 samples
+   3 (ChickPea       ): 100 samples
+   4 (Coconut        ): 100 samples
+   5 (Coffee         ): 100 samples
+   6 (Cotton         ): 100 samples
+   7 (Grapes         ): 100 samples
+   8 (Jute           ): 100 samples
+   9 (KidneyBeans    ): 100 samples
+  10 (Lentil         ): 100 samples
+  11 (Maize          ): 100 samples
+  12 (Mango          ): 100 samples
+  13 (MothBeans      ): 100 samples
+  14 (MungBean       ): 100 samples
+  15 (Muskmelon      ): 100 samples
+  16 (Orange         ): 100 samples
+  17 (Papaya         ): 100 samples
+  18 (PigeonPeas     ): 100 samples
+  19 (Pomegranate    ): 100 samples
+  20 (Rice           ): 100 samples
+  21 (Watermelon     ): 100 samples
+
+FINAL DATASET SUMMARY FOR KNN:
+----------------------------------------------------------------------------------------------------
+  Features (X):           (2200, 7)
+  Target (y):             (2200,)
+  Number of classes:      22
+  Features are scaled:    Yes (StandardScaler)
+  Target is encoded:      Yes (LabelEncoder)
+
+====================================================================================================
+END OF FEATURE ENGINEERING REPORT
+====================================================================================================

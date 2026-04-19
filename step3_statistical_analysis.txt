@@ -1,0 +1,63 @@
+====================================================================================================
+DETAILED STATISTICAL ANALYSIS - CROP RECOMMENDATION DATASET
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+1. CENTRAL TENDENCY AND DISPERSION MEASURES
+----------------------------------------------------------------------------------------------------
+
+Feature      | Mean       | Median     | Mode       | Variance     | Std Dev   
+----------------------------------------------------------------------------------------------------
+Nitrogen     |     50.552 |     37.000 |     22.000 |     1362.890 |     36.917
+Phosphorus   |     53.363 |     51.000 |     60.000 |     1088.068 |     32.986
+Potassium    |     48.149 |     32.000 |     17.000 |     2565.213 |     50.648
+Temperature  |     25.616 |     25.599 |      8.826 |       25.642 |      5.064
+Humidity     |     71.482 |     80.473 |     14.258 |      495.677 |     22.264
+pH_Value     |      6.469 |      6.425 |      3.505 |        0.599 |      0.774
+Rainfall     |    103.464 |     94.868 |     20.211 |     3020.424 |     54.958
+
+
+----------------------------------------------------------------------------------------------------
+2. SKEWNESS AND KURTOSIS ANALYSIS
+----------------------------------------------------------------------------------------------------
+
+Feature      | Skewness     | Skewness Type                       | Kurtosis     | Kurtosis Type            
+----------------------------------------------------------------------------------------------------
+Nitrogen     |        0.510 | Positive Skew (Right-skewed)        |       -1.058 | Platykurtic (Flat distribution)
+Phosphorus   |        1.011 | Positive Skew (Right-skewed)        |        0.860 | Leptokurtic (High peak)  
+Potassium    |        2.375 | Positive Skew (Right-skewed)        |        4.449 | Leptokurtic (High peak)  
+Temperature  |        0.185 | Approximately Zero (Symmetrical)    |        1.233 | Leptokurtic (High peak)  
+Humidity     |       -1.092 | Negative Skew (Left-skewed)         |        0.302 | Leptokurtic (High peak)  
+pH_Value     |        0.284 | Approximately Zero (Symmetrical)    |        1.656 | Leptokurtic (High peak)  
+Rainfall     |        0.966 | Positive Skew (Right-skewed)        |        0.607 | Leptokurtic (High peak)  
+
+
+----------------------------------------------------------------------------------------------------
+3. CORRELATION MATRIX
+----------------------------------------------------------------------------------------------------
+
+             Nitrogen  Phosphorus  Potassium  Temperature  Humidity  pH_Value  Rainfall
+Nitrogen       1.0000     -0.2315    -0.1405       0.0265    0.1907    0.0967    0.0590
+Phosphorus    -0.2315      1.0000     0.7362      -0.1275   -0.1187   -0.1380   -0.0638
+Potassium     -0.1405      0.7362     1.0000      -0.1604    0.1909   -0.1695   -0.0535
+Temperature    0.0265     -0.1275    -0.1604       1.0000    0.2053   -0.0178   -0.0301
+Humidity       0.1907     -0.1187     0.1909       0.2053    1.0000   -0.0085    0.0944
+pH_Value       0.0967     -0.1380    -0.1695      -0.0178   -0.0085    1.0000   -0.1091
+Rainfall       0.0590     -0.0638    -0.0535      -0.0301    0.0944   -0.1091    1.0000
+
+
+----------------------------------------------------------------------------------------------------
+STATISTICAL SUMMARY
+----------------------------------------------------------------------------------------------------
+
+HIGHLY CORRELATED FEATURE PAIRS (|r| > 0.5):
+   - Phosphorus vs Potassium: r = 0.7362
+
+SKEWNESS SUMMARY:
+   Highly Skewed (|skew| > 1.0):
+      - Phosphorus: 1.011 - Positive Skew (Right-skewed)
+      - Potassium: 2.375 - Positive Skew (Right-skewed)
+      - Humidity: -1.092 - Negative Skew (Left-skewed)
+====================================================================================================
+END OF STATISTICAL ANALYSIS
+====================================================================================================
