@@ -63,13 +63,7 @@ git clone <your-repo-link>
 cd Crop_Recommendation_KNN
 ```
 
-2. Install dependencies:
-
-```
-pip install -r requirements.txt
-```
-
-3. Run the Streamlit app:
+2. Run the Streamlit app:
 
 ```
 streamlit run app.py
